@@ -100,9 +100,10 @@ drop = [
     # 'Signup_Quarter'
     
 X =data.drop(columns=drop,errors='ignore')
-
-
 from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X = scaler.fit_transform(X)
+
 
 y= data["Churned"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
